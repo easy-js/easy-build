@@ -1,4 +1,4 @@
-easy-build [![Build Status](https://travis-ci.org/easy-js/easy-build.png)](https://travis-ci.org/easy-js/easy-build)
+easy-build
 ==========
 
 Reusable grunt configurations for client side javascript libraries.
