@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- meta -->
+    <meta charset="utf-8" />
+    <title>{{fileName}}</title>
+
+    <!-- styles -->
+    <link rel="stylesheet" href="../node_modules/easy-build/node_modules/mocha/mocha.css" />
+  </head>
+
+  <body>
+
+    <!-- content -->
+    <div id="workboard" style="position: absolute;"></div>
+    <div id="mocha"></div>
+
+    <!-- tests -->
+    <script src="../node_modules/easy-build/node_modules/requirejs/require.js"></script>
+    <script src="../node_modules/easy-build/node_modules/easy-amdtest/dist/easy-amdtest.js"></script>
+    <script>
+      // Add amd module
+      var paths = {{{paths}}};
+      paths['{{fileName}}'] = '../dist';
+
+      var testSuite = new EasyAMDTest({
+        baseUrl: './',
+        urlArgs: 'bust=' + (new Date()).getTime(),
+        paths: paths,
+        shim: {{{shims}}}
+      }).run({
+        name: 'mocha',
+        tests: [
+          '../test/_umd.js'
+        ]
+      });
+    </script>
+
+  </body>
+</html>
