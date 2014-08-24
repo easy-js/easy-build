@@ -50,6 +50,9 @@ module.exports = function (grunt) {
     return path.join('../', 'test', value);
   });
 
+  // dependencies
+  deps = config['testDependencies'] || [];
+
   // create temp directory to dump stuffs
   var tmpDir = _.tmpDir(_.libpath('runners'));
 
@@ -59,7 +62,8 @@ module.exports = function (grunt) {
     fileName: config.fileName,
     paths: JSON.stringify(paths),
     shims: JSON.stringify(shims),
-    tests: JSON.stringify(tests)
+    tests: JSON.stringify(tests),
+    deps: JSON.stringify(deps)
   }));
 
 
