@@ -6,6 +6,7 @@
 
 // lib
 var _ = require('../lib/utils');
+var data = require('../lib/data');
 
 
 /* -----------------------------------------------------------------------------
@@ -18,7 +19,14 @@ module.exports = function (grunt) {
    * load
    * -------------------------------------------------------------------------*/
 
-  grunt.loadTasks(_.taskpath('grunt-contrib-nodefy'));
+  grunt.loadTasks(_.taskpath('grunt-easy-nodefy'));
+
+
+  /* ---------------------------------------------------------------------------
+   * options
+   * -------------------------------------------------------------------------*/
+
+  var options = data.json('build/nodefy');
 
 
   /* ---------------------------------------------------------------------------
@@ -26,6 +34,7 @@ module.exports = function (grunt) {
    * -------------------------------------------------------------------------*/
 
   grunt.config('nodefy', {
+    options: options,
     all: {
       expand: true,
       src: ['**/*.js'],
