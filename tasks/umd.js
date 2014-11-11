@@ -36,7 +36,8 @@ module.exports = function (grunt) {
 
   // create object to export
   // ** we are using amdClean camelcase setting.
-  var objectToExport = varname.camelback(config.fileName);
+  var objectToExport = config.fileName.replace('.', '');
+  objectToExport = varname.camelback(objectToExport);
 
   // format from config
   var filePath = path.join('dist', config.fileName + '.js');
