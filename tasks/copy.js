@@ -31,6 +31,12 @@ module.exports = function (grunt) {
       src: ['**/*.js'],
       cwd: 'src',
       dest: 'dist/amd'
+    },
+    docs: {
+      expand: true,
+      src: ['*.*', 'assets/**'],
+      cwd: 'docs',
+      dest: 'docs/<%= pkg.version %>'
     }
   });
 

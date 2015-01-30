@@ -26,7 +26,8 @@ module.exports = function (grunt) {
    * -------------------------------------------------------------------------*/
 
   grunt.config('clean', {
-    dist: ['dist/**/*.*']
+    dist: ['dist/**/*.*'],
+    docs: ['docs/**/*.*']
   });
 
 };
