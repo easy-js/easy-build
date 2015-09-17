@@ -31,10 +31,11 @@ module.exports = function (grunt) {
   var filesToChange = ['package.json'];
 
   // Add bower if present
-  var bower = fs.readFileSync('./bower.json');
-  if (bower) {
+  var bower;
+  try {
+    bower = fs.readFileSync('./bower.json');
     filesToChange.push('bower.json');
-  }
+  } catch(err) {}
 
 
   /* ---------------------------------------------------------------------------
