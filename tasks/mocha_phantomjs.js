@@ -30,7 +30,7 @@ module.exports = function (grunt) {
 
   // urls default
   var urls = [
-    'runners/runner.html'
+    'http://localhost:9999/runners/runner.html'
   ];
 
   // test distribution files
@@ -38,11 +38,11 @@ module.exports = function (grunt) {
   var umdTest = _.libpath('test/_umd.js');
 
   if (fs.existsSync(amdTest)) {
-    urls.push('runners/amd.html');
+    urls.push('http://localhost:9999/runners/amd.html');
   }
 
   if (fs.existsSync(umdTest)) {
-    urls.push('runners/umd.html');
+    urls.push('http://localhost:9999/runners/umd.html');
   }
 
 
@@ -51,7 +51,9 @@ module.exports = function (grunt) {
    * -------------------------------------------------------------------------*/
 
   grunt.config('mocha_phantomjs', {
-    all: urls
+    all: {
+      options: { urls: urls }
+    }
   });
 
 };
