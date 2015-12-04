@@ -46,12 +46,7 @@ module.exports = function (grunt) {
    * data
    * -------------------------------------------------------------------------*/
 
-  var browsers = data.json('build/modules');
-
-  // use defaults if browsers is empty
-  if (!browsers.length) {
-    browsers = defaultBrowsers;
-  }
+  var args = data.json('build/sauce');
 
   // tests default
   var urls = [
@@ -74,17 +69,24 @@ module.exports = function (grunt) {
   /* ---------------------------------------------------------------------------
    * config
    * -------------------------------------------------------------------------*/
+  var defaults = {
+    urls: urls,
+    build: process.env.TRAVIS_JOB_ID || '<%= pkg.version %>',
+    tunnelTimeout: 5,
+    throttled: 3,
+    browsers: defaultBrowsers,
+    testname: '<%= pkg.name %>'
+  };
+  var options = _.extend({}, defaults, args);
+
+  if (grunt.verbose) {
+    grunt.verbose.writeln('Building Sauce-labs Mocha test with these options,');
+    grunt.verbose.write(JSON.stringify(options, null, 2));
+  }
 
   grunt.config('saucelabs-mocha', {
     all: {
-      options: {
-        urls: urls,
-        build: process.env.TRAVIS_JOB_ID || '<%= pkg.version %>',
-        tunnelTimeout: 5,
-        concurrency: 3,
-        browsers: browsers,
-        testname: '<%= pkg.name %>'
-      }
+      options: options
     }
   });
 
