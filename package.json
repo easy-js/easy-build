@@ -15,9 +15,6 @@
   "scripts": {
     "test": "grunt test"
   },
-  "peerDependencies": {
-    "grunt": "~0.4.5"
-  },
   "dependencies": {
     "amdclean": "~2.2.4",
     "assemble": "~0.4.41",
