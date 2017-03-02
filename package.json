@@ -32,7 +32,7 @@
     "grunt-easy-docs": "~0.2.0",
     "grunt-easy-nodefy": "~0.0.2",
     "grunt-gh-pages": "easy-js/grunt-gh-pages",
-    "grunt-mocha-phantomjs": "0.6.1",
+    "grunt-mocha-phantomjs": "4.0.0",
     "grunt-mocha-test": "~0.12.7",
     "grunt-saucelabs": "~8.3.1",
     "grunt-umd": "~1.7.3",
